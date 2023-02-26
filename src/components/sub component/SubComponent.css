@@ -1,0 +1,17 @@
+.Clock {
+  font-size: 8rem;
+  font-weight: bold;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.Temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.Temperature__Degree {
+  font-size: 1.5rem;
+}

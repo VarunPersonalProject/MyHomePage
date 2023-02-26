@@ -1,0 +1,54 @@
+.Upper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+}
+
+.Link {
+  cursor: pointer;
+  color: var(--fontColorInActive);
+}
+
+.Link:hover {
+  color: var(--fontColor);
+}
+
+.InnerLink {
+  padding-left: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.InnerLink:hover {
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.LinkControl {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.LinkControl:first-child {
+  margin-right: 0.5rem;
+}
+
+.Dialog {
+  display: flex;
+  flex-direction: column;
+}
+
+.Dialog > input {
+  margin-top: 1rem;
+}
+
+.Dialog > button {
+  margin-top: 1rem;
+}
+
+.Middle_Username {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}

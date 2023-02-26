@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import React from "react";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import ApiWrapper from "./services/ApiWrapper";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const oRoot = document.getElementById("root"),
+  _apiWrapper = new ApiWrapper(),
+  username = _apiWrapper.getStorage("username") || "";
+
+_apiWrapper.setLongLat();
+
+if (!username) {
+  let personName = prompt("Please enter your name", "");
+  if ((personName || "").trim()) {
+    _apiWrapper.setStorage("username", personName);
+  } else {
+    window.location.reload();
+  }
+}
+
+ReactDOM.createRoot(oRoot).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

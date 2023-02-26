@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import oBackground from "../src/data/background.json";
+import Upper from "./components/main component/Upper";
+import Middle from "./components/main component/Middle";
+import Lower from "./components/main component/Lower";
 
 function App() {
+  const aBackground = oBackground["background"],
+    nIdx =
+      Number(new Date().toISOString().split("T")[0].replaceAll("-", "")) %
+      aBackground.length,
+    path = oBackground["path"],
+    name = aBackground[nIdx],
+    backgroundImg = `${path}${name}`;
+
+  document.title = "My Home Page 🚞";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        height: "100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+      className="App"
+    >
+      <Upper />
+      <Middle />
+      <Lower />
     </div>
   );
 }
