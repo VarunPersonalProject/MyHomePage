@@ -1,8 +1,8 @@
 const ICON_BASEURL = "https://icons.duckduckgo.com",
-  OPENWEATHER_APIKEY = "775c9cb752c322ecaed7fe2ab6ddf782",
+  OPENWEATHER_APIKEY = "Nzc1YzljYjc1MmMzMjJlY2FlZDdmZTJhYjZkZGY3ODI=",
   OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather",
   key = "coordinate";
-
+debugger;
 class ApiWrapper {
   iconRequest({ url }) {
     return `${ICON_BASEURL}/ip2/${url.hostname}.ico`;
@@ -18,7 +18,7 @@ class ApiWrapper {
       url: `${OPENWEATHER_URL}?${new URLSearchParams({
         lat: oPosition.latitude,
         lon: oPosition.longitude,
-        appid: OPENWEATHER_APIKEY,
+        appid: atob(OPENWEATHER_APIKEY),
         units: "metric",
       })}`,
     }).then((oResponse) => oResponse.json());
