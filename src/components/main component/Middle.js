@@ -9,11 +9,14 @@ export default function Middle() {
     nHour = oDate.getHours(),
     sUsername = _apiWrapper.getStorage("username");
 
-  let sGreet;
+  let sGreet = `Good ${
+    nHour < 12
+      ? "Morning"
+      : nHour >= 12 && nHour <= 17
+      ? "Afternoon"
+      : "Evening"
+  }`;
 
-  if (nHour < 12) sGreet = "Good Morning";
-  else if (nHour >= 12 && nHour <= 17) sGreet = "Good Afternoon";
-  else if (nHour >= 17 && nHour <= 24) sGreet = "Good Evening";
   return (
     <div>
       <Clock />

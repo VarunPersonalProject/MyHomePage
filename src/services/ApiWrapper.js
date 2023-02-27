@@ -24,12 +24,22 @@ class ApiWrapper {
     }).then((oResponse) => oResponse.json());
   }
 
-  setLongLat() {
+  userConfiguration() {
+    const username = this.getStorage("username") || "";
+
     navigator.geolocation.getCurrentPosition((oCorr) => {
       this.setStorage(key, {
         latitude: oCorr.coords.latitude,
         longitude: oCorr.coords.longitude,
       });
+      if (!username) {
+        let personName = prompt("Please enter your name.", "");
+        if ((personName || "").trim()) {
+          this.setStorage("username", personName);
+        } else {
+          window.location.reload();
+        }
+      }
     });
   }
 

@@ -7,19 +7,9 @@ import "primeicons/primeicons.css";
 import ApiWrapper from "./services/ApiWrapper";
 
 const oRoot = document.getElementById("root"),
-  _apiWrapper = new ApiWrapper(),
-  username = _apiWrapper.getStorage("username") || "";
+  _apiWrapper = new ApiWrapper();
 
-_apiWrapper.setLongLat();
-
-if (!username) {
-  let personName = prompt("Please enter your name", "");
-  if ((personName || "").trim()) {
-    _apiWrapper.setStorage("username", personName);
-  } else {
-    window.location.reload();
-  }
-}
+_apiWrapper.userConfiguration();
 
 ReactDOM.createRoot(oRoot).render(
   <React.StrictMode>

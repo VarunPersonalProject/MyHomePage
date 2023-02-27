@@ -9,7 +9,6 @@
 .Temperature {
   display: flex;
   flex-direction: column;
-  align-items: end;
 }
 
 .Temperature__Degree {
